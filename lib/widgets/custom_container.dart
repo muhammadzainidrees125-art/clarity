@@ -20,6 +20,7 @@ class _CustomContainerState extends State<CustomContainer> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.all(24),
       height: widget.height,
       width: widget.width,
       decoration: BoxDecoration(
