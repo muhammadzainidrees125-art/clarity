@@ -22,8 +22,6 @@ class AppTheme {
       onError: Colors.white,
       surface: backgroundColor,
       onSurface: textprimaryColor,
-      background: backgroundColor,
-      onBackground: textprimaryColor,
     ),
     textTheme: GoogleFonts.manropeTextTheme().copyWith(
       headlineLarge: GoogleFonts.manrope(

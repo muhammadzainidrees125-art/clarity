@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CustomTextfromfield extends StatefulWidget {
-  const CustomTextfromfield({super.key});
+  const CustomTextfromfield({super.key, required this.title});
+
+  final String title;
 
   @override
   State<CustomTextfromfield> createState() => _CustomTextfromfieldState();
@@ -12,6 +14,7 @@ class _CustomTextfromfieldState extends State<CustomTextfromfield> {
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
+        labelText: widget.title,
         filled: true,
         fillColor: Color(0xffF3F3FE),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
