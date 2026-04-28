@@ -17,6 +17,7 @@ class _SignupScreenState extends State<SignupScreen> {
         child: Column(
           children: [
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   'join',
@@ -40,7 +41,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 color: Color(0XFF434655),
               ),
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 20),
             CustomContainer(
               height: 589,
               width: 350,
