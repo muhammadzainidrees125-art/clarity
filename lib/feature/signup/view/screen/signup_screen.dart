@@ -1,3 +1,4 @@
+import 'package:clarity/widgets/custom_container.dart';
 import 'package:flutter/material.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -38,6 +39,12 @@ class _SignupScreenState extends State<SignupScreen> {
                 fontWeight: FontWeight(400),
                 color: Color(0XFF434655),
               ),
+            ),
+            SizedBox(height: 10),
+            CustomContainer(
+              height: 589,
+              width: 350,
+              child: Column(children: []),
             ),
           ],
         ),
