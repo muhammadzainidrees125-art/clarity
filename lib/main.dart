@@ -1,4 +1,7 @@
-import 'package:clarity/feature/signin/screen/wellcome_screen.dart';
+import 'package:clarity/feature/signin/screen/view/addtask_screen.dart';
+import 'package:clarity/feature/signin/screen/view/wellcome_screen.dart';
+
+import 'package:clarity/theme/app_theme.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -20,10 +23,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Clarity',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: WellcomeScreen(),
+      theme: AppTheme.lightTheme,
+      themeMode: ThemeMode.light,
+
+      home: AddtaskScreen(),
     );
   }
 }
