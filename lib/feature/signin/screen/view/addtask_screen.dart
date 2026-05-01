@@ -47,7 +47,7 @@ class _AddtaskScreenState extends State<AddtaskScreen> {
                       spacing: 15,
                       children: [
                         Container(
-                          padding: EdgeInsets.all(4),
+                          padding: EdgeInsets.all(8),
                           height: 106,
                           width: 150,
                           decoration: BoxDecoration(
@@ -55,6 +55,7 @@ class _AddtaskScreenState extends State<AddtaskScreen> {
                             borderRadius: BorderRadius.circular(12),
                           ),
                           child: Row(
+                            spacing: 8,
                             children: [
                               Container(
                                 padding: EdgeInsets.all(6),
@@ -73,17 +74,32 @@ class _AddtaskScreenState extends State<AddtaskScreen> {
                                   ],
                                 ),
                               ),
-                              Column(
-                                children: [
-                                  Text('Email follow-up'),
-                                  Text('Work category'),
-                                ],
+                              Expanded(
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      'Email follow-up',
+                                      style: TextTheme.of(context).titleLarge
+                                          ?.copyWith(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight(700),
+                                          ),
+                                    ),
+                                    Text(
+                                      'Work category',
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight(400),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ],
                           ),
                         ),
                         Container(
-                          padding: EdgeInsets.all(4),
+                          padding: EdgeInsets.all(8),
                           height: 106,
                           width: 150,
                           decoration: BoxDecoration(
@@ -91,29 +107,43 @@ class _AddtaskScreenState extends State<AddtaskScreen> {
                             borderRadius: BorderRadius.circular(12),
                           ),
                           child: Row(
+                            spacing: 15,
                             children: [
                               Container(
                                 padding: EdgeInsets.all(6),
                                 height: 32,
                                 width: 36,
                                 decoration: BoxDecoration(
-                                  color: Color(0xffDBE1FF),
+                                  color: Color(0xffFFDBCD),
                                   borderRadius: BorderRadius.circular(8),
                                 ),
                                 child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Icon(
-                                      Icons.mail_outline,
-                                      color: Color(0xff004AC6),
-                                    ),
+                                    Image.asset('assets/Icon (1).png'),
                                   ],
                                 ),
                               ),
-                              Column(
-                                children: [
-                                  Text('Email follow-up'),
-                                  Text('Work category'),
-                                ],
+                              Expanded(
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      'Daily workout',
+                                      style: TextTheme.of(context).titleLarge
+                                          ?.copyWith(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight(700),
+                                          ),
+                                    ),
+                                    Text(
+                                      'Health category',
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight(400),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ],
                           ),
@@ -132,6 +162,7 @@ class _AddtaskScreenState extends State<AddtaskScreen> {
                 ),
                 Expanded(
                   child: CustomElevatedbutton(
+                    onPressed: () {},
                     fontsize: 13,
                     title: 'Save Task',
                     width: double.infinity,
@@ -146,8 +177,17 @@ class _AddtaskScreenState extends State<AddtaskScreen> {
   }
 }
 
-class PrioritySelector extends StatelessWidget {
+class PrioritySelector extends StatefulWidget {
   const PrioritySelector({super.key});
+
+  @override
+  State<PrioritySelector> createState() => _PrioritySelectorState();
+}
+
+class _PrioritySelectorState extends State<PrioritySelector> {
+  String selectedPriority = 'Medium';
+
+  List<String> priorities = ['Low', 'Medium', 'High'];
 
   @override
   Widget build(BuildContext context) {
@@ -155,86 +195,50 @@ class PrioritySelector extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text('Priority Level'),
-        SizedBox(height: 5),
-        Row(
-          spacing: 5,
-          children: [
-            Container(
-              height: 48,
-              width: 100,
-              padding: EdgeInsets.all(3),
-              decoration: BoxDecoration(
-                color: Color(0xffF3F3FE),
-                border: Border.all(color: Color(0xffC3C6D7)),
-                borderRadius: BorderRadius.circular(16),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                spacing: 5,
+        SizedBox(height: 8),
+
+        Wrap(
+          spacing: 10,
+          children: priorities.map((item) {
+            return ChoiceChip(
+              showCheckmark: false,
+              label: Row(
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   Container(
                     height: 8,
                     width: 8,
                     decoration: BoxDecoration(
-                      color: Color(0xff22C55E),
+                      color: item == 'Low'
+                          ? Color(0xff22C55E)
+                          : item == 'Medium'
+                          ? Color(0xffF59E0B)
+                          : Color(0xffEF4444),
                       borderRadius: BorderRadius.circular(100),
                     ),
                   ),
-                  Text('Low'),
+                  SizedBox(width: 5),
+                  Text(item),
                 ],
               ),
-            ),
-            Container(
-              height: 48,
-              width: 100,
-              padding: EdgeInsets.all(3),
-              decoration: BoxDecoration(
-                color: Color(0xffD0E1FB),
-                border: Border.all(color: Color(0xffC3C6D7)),
+
+              selected: selectedPriority == item,
+
+              selectedColor: Color(0xffD0E1FB),
+              backgroundColor: Color(0xffF3F3FE),
+
+              shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16),
+                side: BorderSide(color: Color(0xffC3C6D7)),
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                spacing: 5,
-                children: [
-                  Container(
-                    height: 8,
-                    width: 8,
-                    decoration: BoxDecoration(
-                      color: Color(0xffF59E0B),
-                      borderRadius: BorderRadius.circular(100),
-                    ),
-                  ),
-                  Text('Medium'),
-                ],
-              ),
-            ),
-            Container(
-              height: 48,
-              width: 100,
-              padding: EdgeInsets.all(3),
-              decoration: BoxDecoration(
-                color: Color(0xffF3F3FE),
-                border: Border.all(color: Color(0xffC3C6D7)),
-                borderRadius: BorderRadius.circular(16),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                spacing: 5,
-                children: [
-                  Container(
-                    height: 8,
-                    width: 8,
-                    decoration: BoxDecoration(
-                      color: Color(0xffEF4444),
-                      borderRadius: BorderRadius.circular(100),
-                    ),
-                  ),
-                  Text('Hard'),
-                ],
-              ),
-            ),
-          ],
+
+              onSelected: (val) {
+                setState(() {
+                  selectedPriority = item;
+                });
+              },
+            );
+          }).toList(),
         ),
       ],
     );
