@@ -7,10 +7,11 @@ class CustomContainer extends StatefulWidget {
     this.color,
     this.padding,
     this.borderRadius,
+    this.border,
   });
 
   final Widget child;
-
+  final dynamic border;
   final Color? color;
   final EdgeInsets? padding;
   final BorderRadius? borderRadius;
@@ -25,6 +26,7 @@ class _CustomContainerState extends State<CustomContainer> {
       padding: widget.padding ?? EdgeInsets.all(24),
 
       decoration: BoxDecoration(
+        border: widget.border,
         color: widget.color ?? Color(0xffffffff),
         borderRadius: widget.borderRadius ?? BorderRadius.circular(10),
       ),

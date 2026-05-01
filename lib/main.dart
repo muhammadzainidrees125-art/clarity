@@ -1,5 +1,4 @@
-import 'package:clarity/feature/signin/screen/view/addtask_screen.dart';
-
+import 'package:clarity/dashbord/screen/dashbord_screen.dart';
 import 'package:clarity/theme/app_theme.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
@@ -25,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.lightTheme,
       themeMode: ThemeMode.light,
 
-      home: AddtaskScreen(),
+      home: DashbordScreen(),
     );
   }
 }

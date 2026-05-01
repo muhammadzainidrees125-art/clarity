@@ -119,7 +119,11 @@ class _WellcomeScreenState extends State<WellcomeScreen> {
               ],
             ),
             SizedBox(height: 15),
-            CustomElevatedbutton(title: 'Next', width: double.infinity),
+            CustomElevatedbutton(
+              onPressed: () {},
+              title: 'Next',
+              width: double.infinity,
+            ),
           ],
         ),
       ),

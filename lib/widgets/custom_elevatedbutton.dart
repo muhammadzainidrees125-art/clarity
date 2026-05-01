@@ -6,11 +6,13 @@ class CustomElevatedbutton extends StatefulWidget {
     required this.title,
     required this.width,
     this.fontsize = 20,
+    required this.onPressed,
   });
 
   final String title;
   final double width;
   final double fontsize;
+  final dynamic onPressed;
 
   @override
   State<CustomElevatedbutton> createState() => _CustomElevatedbuttonState();
@@ -22,7 +24,7 @@ class _CustomElevatedbuttonState extends State<CustomElevatedbutton> {
     return SizedBox(
       width: widget.width,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: widget.onPressed,
         style: ElevatedButton.styleFrom(backgroundColor: Color(0xff004AC6)),
         child: Text(
           widget.title,

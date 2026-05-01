@@ -59,7 +59,11 @@ class _SignupScreenState extends State<SignupScreen> {
                   Column(
                     spacing: 20,
                     children: [
-                      CustomElevatedbutton(title: 'Sign Up', width: 300),
+                      CustomElevatedbutton(
+                        onPressed: () {},
+                        title: 'Sign Up',
+                        width: 300,
+                      ),
                       Row(
                         spacing: 10,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -85,13 +89,8 @@ class _SignupScreenState extends State<SignupScreen> {
                         ],
                       ),
                       Customelevatedbuttonicon(
-<<<<<<< HEAD
                         icon: Icons.apple,
                         color: Color(0XFF000000),
-=======
-                        icon: Icons.account_circle_outlined,
-                        color: Color(0XFFFFFFFF),
->>>>>>> 9e4b481c08d2330e500d907841c0b8aaf27631cc
                       ),
                     ],
                   ),
