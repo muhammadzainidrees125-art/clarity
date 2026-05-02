@@ -95,11 +95,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         ],
                       ),
                       Customelevatedbuttonicon(
-<<<<<<< HEAD
-                        icon: Icons.apple,
-=======
                         icon: Icons.account_circle_outlined,
->>>>>>> 04bcdefc7f537177bbf503d52e14c66914fe887f
                         color: Color(0XFF000000),
                       ),
                     ],
