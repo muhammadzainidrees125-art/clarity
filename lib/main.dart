@@ -1,8 +1,5 @@
-import 'package:clarity/dashbord/screen/dashbord_screen.dart';
-<<<<<<< HEAD
-=======
-
->>>>>>> 7390dcfa3923e983cd1f7c9aa8964a94413c4625
+import 'package:clarity/routes/app_pages.dart';
+import 'package:clarity/routes/app_routes.dart';
 import 'package:clarity/theme/app_theme.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
@@ -27,8 +24,8 @@ class MyApp extends StatelessWidget {
       title: 'Clarity',
       theme: AppTheme.lightTheme,
       themeMode: ThemeMode.light,
-
-      home: DashbordScreen(),
+      initialRoute: AppRoutes.onboarding,
+      routes: AppPages.routes,
     );
   }
 }
