@@ -1,5 +1,5 @@
-import 'package:clarity/widgets/app_information_widget.dart';
-import 'package:clarity/widgets/custom_container.dart';
+import 'package:clarity/feature/setting/view/widget/app_information_widget.dart';
+import 'package:clarity/core/widget/custom_container.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

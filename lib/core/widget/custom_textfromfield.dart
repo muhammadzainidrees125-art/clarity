@@ -8,6 +8,7 @@ class CustomTextfromfield extends StatefulWidget {
     this.suffixIcon,
     this.maxlines,
     this.isCompulsory = false,
+    required this.controller,
   });
 
   final String? title;
@@ -15,6 +16,7 @@ class CustomTextfromfield extends StatefulWidget {
   final Widget? suffixIcon;
   final int? maxlines;
   final bool isCompulsory;
+  final TextEditingController controller;
 
   @override
   State<CustomTextfromfield> createState() => _CustomTextfromfieldState();
@@ -31,6 +33,7 @@ class _CustomTextfromfieldState extends State<CustomTextfromfield> {
             '${widget.title ?? ''} ${widget.isCompulsory == true ? '*' : ''}',
           ),
         TextFormField(
+          controller: widget.controller,
           maxLines: widget.maxlines,
           decoration: InputDecoration(
             suffixIcon: widget.suffixIcon,

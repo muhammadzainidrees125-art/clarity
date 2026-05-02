@@ -1,14 +1,44 @@
-import 'package:clarity/widgets/custom_container.dart';
+import 'package:clarity/core/widget/custom_container.dart';
 import 'package:flutter/material.dart';
 
 class TaskDetails extends StatefulWidget {
-  const TaskDetails({super.key});
+  final String? priority;
+  const TaskDetails({super.key, this.priority});
 
   @override
   State<TaskDetails> createState() => _TaskDetailsState();
 }
 
 class _TaskDetailsState extends State<TaskDetails> {
+  late String selectedPriority;
+
+  Map<String, Map<String, String>> taskData = {
+    'Low': {
+      'status': 'In Progress',
+      'title': 'Low Priority Task',
+      'description': 'This is a low priority task description.',
+      'dueDate': 'Nov 15',
+    },
+    'Medium': {
+      'status': 'In Progress',
+      'title': 'Medium Priority Task',
+      'description': 'This is a medium priority task description.',
+      'dueDate': 'Oct 25',
+    },
+    'High': {
+      'status': 'In Progress',
+      'title': 'High Priority Task',
+      'description': 'This is a high priority task description.',
+      'dueDate': 'Oct 10',
+    },
+  };
+
+  @override
+  void initState() {
+    super.initState();
+    selectedPriority = widget.priority ?? 'Medium';
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +75,7 @@ class _TaskDetailsState extends State<TaskDetails> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'In Progress',
+                          taskData[selectedPriority]!['status']!,
                           style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight(600),
@@ -55,12 +85,10 @@ class _TaskDetailsState extends State<TaskDetails> {
                     ),
                   ),
                   Text(
-                    'Redesign Landing Page',
+                    taskData[selectedPriority]!['title']!,
                     style: TextTheme.of(context).headlineLarge,
                   ),
-                  Text(
-                    'Update the visual language for the Q4 product release to improve user conversion.',
-                  ),
+                  Text(taskData[selectedPriority]!['description']!),
                 ],
               ),
             ),
@@ -84,7 +112,7 @@ class _TaskDetailsState extends State<TaskDetails> {
                             ),
                           ),
                           Text(
-                            'Oct 25',
+                            taskData[selectedPriority]!['dueDate']!,
                             style: TextTheme.of(context).headlineSmall
                                 ?.copyWith(
                                   fontSize: 20,
