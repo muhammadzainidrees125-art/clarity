@@ -1,9 +1,9 @@
-import 'package:clarity/feature/core/custom_textfromfield.dart';
+import 'package:clarity/core/widget/custom_textfromfield.dart';
 import 'package:clarity/routes/app_routes.dart';
-import 'package:clarity/widgets/custom_container.dart';
-import 'package:clarity/widgets/custom_elevatedbutton.dart';
-import 'package:clarity/widgets/custom_elevatedbuttonicon.dart';
-import 'package:clarity/widgets/custom_securitycontainer.dart';
+import 'package:clarity/core/widget/custom_container.dart';
+import 'package:clarity/core/widget/custom_elevatedbutton.dart';
+import 'package:clarity/core/widget/custom_elevatedbuttonicon.dart';
+import 'package:clarity/core/widget/custom_securitycontainer.dart';
 import 'package:flutter/material.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -53,10 +53,22 @@ class _SignupScreenState extends State<SignupScreen> {
               child: Column(
                 spacing: 40,
                 children: [
-                  CustomTextfromfield(title: 'Full Name'),
-                  CustomTextfromfield(title: 'Email Address'),
-                  CustomTextfromfield(title: 'Password'),
-                  CustomTextfromfield(title: 'Confirm Password'),
+                  CustomTextfromfield(
+                    controller: TextEditingController(),
+                    title: 'Full Name',
+                  ),
+                  CustomTextfromfield(
+                    controller: TextEditingController(),
+                    title: 'Email Address',
+                  ),
+                  CustomTextfromfield(
+                    controller: TextEditingController(),
+                    title: 'Password',
+                  ),
+                  CustomTextfromfield(
+                    controller: TextEditingController(),
+                    title: 'Confirm Password',
+                  ),
                   Column(
                     spacing: 20,
                     children: [
@@ -95,11 +107,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         ],
                       ),
                       Customelevatedbuttonicon(
-<<<<<<< HEAD
-                        icon: Icons.apple,
-=======
                         icon: Icons.account_circle_outlined,
->>>>>>> 04bcdefc7f537177bbf503d52e14c66914fe887f
                         color: Color(0XFF000000),
                       ),
                     ],

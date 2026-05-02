@@ -1,4 +1,4 @@
-import 'package:clarity/widgets/custom_container.dart';
+import 'package:clarity/core/widget/custom_container.dart';
 import 'package:flutter/material.dart';
 
 class CustomCard extends StatefulWidget {

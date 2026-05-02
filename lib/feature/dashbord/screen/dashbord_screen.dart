@@ -1,6 +1,6 @@
-import 'package:clarity/feature/signup/view/screen/home_screen.dart';
-import 'package:clarity/feature/signup/view/screen/analytics_screen.dart';
-import 'package:clarity/feature/signup/view/screen/setting_screen.dart';
+import 'package:clarity/feature/home_feature/view/screen/home_screen.dart';
+import 'package:clarity/feature/analytic/view/screen/analytics_screen.dart';
+import 'package:clarity/feature/setting/view/screen/setting_screen.dart';
 import 'package:flutter/material.dart';
 
 class DashbordScreen extends StatefulWidget {

@@ -1,4 +1,4 @@
-import 'package:clarity/inventory%20list/data/model/task_model.dart';
+import 'package:clarity/feature/task/data/model/task_model.dart';
 
 List<TaskModel> listoftask = [
   TaskModel(

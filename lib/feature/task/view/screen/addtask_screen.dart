@@ -1,5 +1,5 @@
-import 'package:clarity/feature/core/custom_textfromfield.dart';
-import 'package:clarity/widgets/custom_elevatedbutton.dart';
+import 'package:clarity/core/widget/custom_textfromfield.dart';
+import 'package:clarity/core/widget/custom_elevatedbutton.dart';
 import 'package:flutter/material.dart';
 
 class AddtaskScreen extends StatefulWidget {
@@ -10,12 +10,18 @@ class AddtaskScreen extends StatefulWidget {
 }
 
 class _AddtaskScreenState extends State<AddtaskScreen> {
+  String selectedPriority = "Medium";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         scrolledUnderElevation: 0,
-        leading: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back),
+        ),
         title: Text('Add Task', style: TextTheme.of(context).headlineMedium),
       ),
       backgroundColor: Color(0xffFAF8FF),
@@ -24,19 +30,37 @@ class _AddtaskScreenState extends State<AddtaskScreen> {
         child: Column(
           spacing: 10,
           children: [
-            CustomTextfromfield(title: 'Task Title *'),
-            CustomTextfromfield(maxlines: 4, title: 'Description'),
+            CustomTextfromfield(
+              controller: TextEditingController(),
+              title: 'Task Title *',
+            ),
+            CustomTextfromfield(
+              controller: TextEditingController(),
+              maxlines: 4,
+              title: 'Description',
+            ),
             SizedBox(height: 10),
             CustomTextfromfield(
+              controller: TextEditingController(),
               title: 'Due Date',
               suffixIcon: Icon(Icons.calendar_today_outlined),
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                PrioritySelector(),
+                PrioritySelector(
+                  onChanged: (value) {
+                    setState(() {
+                      selectedPriority = value;
+                    });
+                  },
+                ),
+
                 SizedBox(height: 15),
-                CustomTextfromfield(title: 'Tags'),
+                CustomTextfromfield(
+                  controller: TextEditingController(),
+                  title: 'Tags',
+                ),
                 SizedBox(height: 25),
                 Column(
                   spacing: 10,
@@ -178,7 +202,8 @@ class _AddtaskScreenState extends State<AddtaskScreen> {
 }
 
 class PrioritySelector extends StatefulWidget {
-  const PrioritySelector({super.key});
+  final Function(String) onChanged;
+  const PrioritySelector({super.key, required this.onChanged});
 
   @override
   State<PrioritySelector> createState() => _PrioritySelectorState();
@@ -236,6 +261,7 @@ class _PrioritySelectorState extends State<PrioritySelector> {
                 setState(() {
                   selectedPriority = item;
                 });
+                widget.onChanged(item);
               },
             );
           }).toList(),

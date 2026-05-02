@@ -1,7 +1,6 @@
-import 'package:clarity/feature/core/custom_textfromfield.dart';
-import 'package:clarity/routes/app_routes.dart';
-import 'package:clarity/widgets/custom_container.dart';
-import 'package:clarity/widgets/custom_elevatedbutton.dart';
+import 'package:clarity/core/widget/custom_textfromfield.dart';
+import 'package:clarity/core/widget/custom_container.dart';
+import 'package:clarity/core/widget/custom_elevatedbutton.dart';
 import 'package:flutter/material.dart';
 
 class SigninScreen extends StatefulWidget {
@@ -81,6 +80,7 @@ class _SigninScreenState extends State<SigninScreen> {
                   Column(
                     children: [
                       CustomTextfromfield(
+                        controller: TextEditingController(),
                         prefixIcon: Icon(Icons.email),
                         title: 'EMAIL ADDRESS',
                       ),
@@ -102,6 +102,7 @@ class _SigninScreenState extends State<SigninScreen> {
                   ),
                   SizedBox(height: 5),
                   CustomTextfromfield(
+                    controller: TextEditingController(),
                     title: 'PASSWORD',
                     prefixIcon: Icon(Icons.lock),
                     suffixIcon: Icon(Icons.remove_red_eye),

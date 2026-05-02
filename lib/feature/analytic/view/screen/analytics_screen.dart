@@ -1,5 +1,5 @@
-import 'package:clarity/widgets/custom_container.dart';
-import 'package:clarity/widgets/custom_securitycontainer.dart';
+import 'package:clarity/core/widget/custom_container.dart';
+import 'package:clarity/core/widget/custom_securitycontainer.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
